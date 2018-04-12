@@ -15,4 +15,55 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Divider">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+    <style name="TracksListItem">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+    <style name="primaryText">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/primaryText</item>
+    </style>
+
+    <style name="secondaryText">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/secondaryText</item>
+    </style>
+
+    <style name="title">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">@dimen/default_padding</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+    </style>
+
+    <style name="buttonStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+
+    </style>
+
+
+
 </resources>

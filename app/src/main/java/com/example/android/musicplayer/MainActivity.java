@@ -15,17 +15,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final ArrayList<SongInfo> library = readLibrary();
-        for(int i=0; i<library.size(); i++){
-            Log.v("Library:", library.get(i).getSongName());
-        }
+        final ArrayList<Album> library = readLibrary();
 
-        TextView tracks = findViewById(R.id.tracks_tab_header);
+
+        final TextView tracks = findViewById(R.id.tracks_tab_header);
         tracks.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                boolean allTracks = Boolean.TRUE;
                 Intent tracksActivity = new Intent(MainActivity.this, TracksActivity.class);
-                tracksActivity.putParcelableArrayListExtra("Tracks", library);
+                tracksActivity.putParcelableArrayListExtra("Albums", library);
+                tracksActivity.putExtra("AllTracks", allTracks);
                 startActivity(tracksActivity);
             }
         });
@@ -35,61 +35,48 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent albumsActivity = new Intent(MainActivity.this, AlbumsActivity.class);
+                albumsActivity.putParcelableArrayListExtra("Albums", library);
                 startActivity(albumsActivity);
             }
         });
 
-        TextView artists = findViewById(R.id.artists_tab_header);
-        artists.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent artistsActivity = new Intent(MainActivity.this, ArtistsActivity.class);
-                startActivity(artistsActivity);
-            }
-        });
-
-        TextView genres = findViewById(R.id.genres_tabs_header);
-        genres.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent genresActivity = new Intent(MainActivity.this, GenresActivity.class);
-                startActivity(genresActivity);
-            }
-        });
     }
 
-
-    private ArrayList<SongInfo> readLibrary(){
-        ArrayList<SongInfo> library = new ArrayList<>();
-        String album = "The Best of X";
-        String artist = "X";
-        String genre = "Rock";
-        for(int i=0; i < 12; i++){
-            library.add(new SongInfo(album+"-Track "+i, artist, album, genre));
-        }
-
-        album = "This is it";
-        artist = "Y";
-        genre = "Techno";
-        for(int i=0; i < 13; i++){
-            library.add(new SongInfo(album+"-Track "+i, artist, album, genre));
-        }
-
-        album = "Summer pop hits 2017";
-        artist = "Various Artist";
-        genre = "Pop";
-        for(int i=0; i < 6; i++){
-            library.add(new SongInfo(album+"-Track "+i, artist+i, album, genre));
-        }
-
-        album = "Dancing Mix Vol.1";
-        library.add(new SongInfo(album+"-Track 1", "X", album, "Rock"));
-        library.add(new SongInfo(album+"-Track 2", "Y", album, "Techno"));
-        library.add(new SongInfo(album+"-Track 3", "R", album, "Rap"));
-        library.add(new SongInfo(album+"-Track 4", "R", album, "Rap"));
-        library.add(new SongInfo(album+"-Track 5", "D", album, "Dance"));
+    private ArrayList<Album> readLibrary(){
+        ArrayList<Album> library = new ArrayList<>();
+        library.add(createAlbum("The Best of X", "X", "Rock", 15));
+        library.add(createAlbum("This is it 2", "Y", "Techno", 9));
+        library.add(createAlbum("The Best Album", "#1", "Techno", 12));
+        library.add(createVariousArtistAlbum("Summer pop hits 2017", "Various Artist", "Pop", 8));
+        library.add(createMixedAlbum("Dancing Mix Vol.1"));
 
         return library;
+    }
+
+    private Album createAlbum(String albumName, String artist, String genre, int len){
+        Album album = new Album(albumName);
+        for(int i=0; i < len; i++){
+            album.addSong(new SongInfo("Track "+i, artist, albumName, genre));
+        }
+        return album;
+    }
+
+    private Album createVariousArtistAlbum(String albumName, String artist, String genre, int len){
+        Album albumVarious = new Album(albumName);
+        for(int i=0; i < len; i++){
+            albumVarious.addSong(new SongInfo("Track "+i, artist+i, albumName, genre));
+        }
+        return albumVarious;
+    }
+
+    private Album createMixedAlbum(String albumName){
+        Album album = new Album(albumName);
+        album.addSong(new SongInfo("Track 1", "X", albumName, "Rock"));
+        album.addSong(new SongInfo("Track 2", "Y", albumName, "Techno"));
+        album.addSong(new SongInfo("Track 3", "R", albumName, "Rap"));
+        album.addSong(new SongInfo("Track 4", "R", albumName, "Rap"));
+        album.addSong(new SongInfo("Track 5", "D", albumName, "Dance"));
+        return album;
     }
 
 }

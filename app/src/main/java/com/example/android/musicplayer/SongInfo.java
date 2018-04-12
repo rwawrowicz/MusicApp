@@ -25,10 +25,10 @@ public class SongInfo implements Parcelable {
     public String getSongName() {
         return mSongName;
     }
-    public String getAutorName() {
+    public String getArtistName() {
         return mArtistName;
     }
-    public String getArtistName() {
+    public String getAlbumName() {
         return mAlbumName;
     }
     public String getGenreName() {

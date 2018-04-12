@@ -4,4 +4,7 @@
     <string name="albums">Albums</string>
     <string name="artists">Artists</string>
     <string name="genres">Genres</string>
+    <string name="next">&#62;</string>
+    <string name="prev">&#60;</string>
+    <string name="play">PLAY</string>
 </resources>

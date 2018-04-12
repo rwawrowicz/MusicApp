@@ -25,9 +25,10 @@
         <activity android:name=".ArtistsActivity"
             android:label="@string/artists"
             android:theme="@style/SubActivity"/>
-        <activity android:name=".GenresActivity"
-            android:label="@string/genres"
-            android:theme="@style/SubActivity"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

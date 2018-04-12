@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/default_padding"
+    android:layout_height="@dimen/list_item_high">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/album_grouped_view"
+        android:layout_width="wrap_content"
+        style="@style/primaryText"
+        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/numbers_grouped_view"
+        android:layout_width="wrap_content"
+        style="@style/secondaryText"
+        android:layout_alignParentEnd="true"
+        android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+</LinearLayout>
