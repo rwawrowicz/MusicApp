@@ -32,10 +32,13 @@ public class TracksActivity extends AppCompatActivity {
         playing = Boolean.FALSE;
         currentSongIndex = 0;
 
+
+
         ArrayList<Album> library = getIntent().getParcelableArrayListExtra("Albums");
         boolean allTracks = getIntent().getBooleanExtra("AllTracks", Boolean.FALSE);
         if (!allTracks && library.size() == 1) {
             setTitle(library.get(0).getAlbumTitle());
+
         }
         final ArrayList<SongInfo> tracks = new ArrayList<>();
         for(int i=0; i<library.size(); i++){
