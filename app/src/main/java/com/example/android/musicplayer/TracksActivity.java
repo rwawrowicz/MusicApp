@@ -2,6 +2,7 @@ package com.example.android.musicplayer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -19,6 +20,15 @@ public class TracksActivity extends AppCompatActivity {
     private Button playPrevButton;
     private Boolean playing;
     private int currentSongIndex;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home)
+        {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +41,8 @@ public class TracksActivity extends AppCompatActivity {
         playPrevButton = findViewById(R.id.button_prev);
         playing = Boolean.FALSE;
         currentSongIndex = 0;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
 
 

@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".TracksActivity"
             android:label="@string/all_tracks"
-            android:parentActivityName=".MainActivity"
             android:theme="@style/SubActivity"/>
         <activity android:name=".AlbumsActivity"
             android:label="@string/albums"
